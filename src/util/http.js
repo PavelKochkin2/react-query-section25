@@ -1,6 +1,12 @@
 //a function to make an api call to get all events. can be imported to fetch data in react-query useQuery() hook
-export async function fetchEvents() {
-  const response = await fetch("http://localhost:3000/events");
+export async function fetchEvents({ signal, searchString }) {
+  console.log(searchString);
+  let url = "http://localhost:3000/events";
+
+  if (searchString) {
+    url += "?search=" + searchString;
+  }
+  const response = await fetch(url, { signal: signal });
 
   if (!response.ok) {
     const error = new Error("An error occurred while fetching the events");
