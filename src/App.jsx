@@ -9,6 +9,7 @@ import EventDetails from "./components/Events/EventDetails.jsx";
 import NewEvent from "./components/Events/NewEvent.jsx";
 import EditEvent from "./components/Events/EditEvent.jsx";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { queryClient } from "./util/http.js";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,8 +37,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-const queryClient = new QueryClient();
 
 function App() {
   return (
